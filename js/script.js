@@ -33,3 +33,25 @@ const team = [
     image: 'barbara-ramos-graphic-designer.jpg',
   },
 ];
+
+function printCards(array, container) {
+  container.innerHTML = '';
+  for (let i = 0; i < array.length; i++) {
+    const obj = array[i];
+    const templateDiv = `
+      <div class="team-card">
+        <div class="card-image">
+          <img src="img/${obj.image}" alt="">
+        </div>
+        <div class="card-text">
+          <h3>${obj.name}</h3>
+          <p>${obj.role}</p>
+        </div>
+      </div>`;
+
+    container.innerHTML += templateDiv;
+  }
+}
+
+const container = document.querySelector('.team-container');
+printCards(team, container);
